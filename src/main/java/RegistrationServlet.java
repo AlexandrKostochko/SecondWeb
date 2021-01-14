@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = "/reg")
-public class Registration extends HttpServlet {
+public class RegistrationServlet extends HttpServlet {
     private final InMemoryUserStorage inMemoryUserStorage = new InMemoryUserStorage();
 
     @Override

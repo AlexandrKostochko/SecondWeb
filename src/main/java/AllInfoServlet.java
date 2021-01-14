@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = "/allInfo")
-public class AllInfo extends HttpServlet {
+public class AllInfoServlet extends HttpServlet {
     private final InMemoryUserStorage inMemoryUserStorage = new InMemoryUserStorage();
 
     @Override
@@ -17,12 +17,14 @@ public class AllInfo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (inMemoryUserStorage.getInfo() != null) {
+            StringBuilder stringBuilder = new StringBuilder();
             for (int i = 0; i < inMemoryUserStorage.getInfo().size(); i++) {
-                req.setAttribute("message", "name - " + inMemoryUserStorage.getInfo().get(i).getName() +
+                stringBuilder.append("name - " + inMemoryUserStorage.getInfo().get(i).getName() +
                         ", login - " + inMemoryUserStorage.getInfo().get(i).getLogin() +
                         ", password - " + inMemoryUserStorage.getInfo().get(i).getPassword() +
-                        ", id - " + inMemoryUserStorage.getInfo().get(i).getUserid());
+                        ", id - " + inMemoryUserStorage.getInfo().get(i).getUserid() + "\t");
             }
+            req.setAttribute("message", stringBuilder.toString());
         } else {
             req.setAttribute("message", "no registered users");
         }
