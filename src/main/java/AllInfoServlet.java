@@ -16,7 +16,7 @@ public class AllInfoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (inMemoryUserStorage.getInfo() != null) {
+        if (!inMemoryUserStorage.getIdUser()) {
             StringBuilder stringBuilder = new StringBuilder();
             for (int i = 0; i < inMemoryUserStorage.getInfo().size(); i++) {
                 stringBuilder.append("name - " + inMemoryUserStorage.getInfo().get(i).getName() +

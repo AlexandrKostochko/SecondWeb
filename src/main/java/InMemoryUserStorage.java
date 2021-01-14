@@ -24,6 +24,10 @@ public class InMemoryUserStorage {
         return memory;
     }
 
+    public boolean getIdUser() {
+        return idUser == 1;
+    }
+
     public boolean reg(String login) {
         for (int i = 0; i < memory.size(); i++) {
             if (login.equals(memory.get(i).getLogin())) {
