@@ -22,7 +22,7 @@ public class AllInfoServlet extends HttpServlet {
                 stringBuilder.append("name - " + inMemoryUserStorage.getInfo().get(i).getName() +
                         ", login - " + inMemoryUserStorage.getInfo().get(i).getLogin() +
                         ", password - " + inMemoryUserStorage.getInfo().get(i).getPassword() +
-                        ", id - " + inMemoryUserStorage.getInfo().get(i).getUserid() + "\t");
+                        ", id - " + inMemoryUserStorage.getInfo().get(i).getUserid() + "<br>");
             }
             req.setAttribute("message", stringBuilder.toString());
         } else {
